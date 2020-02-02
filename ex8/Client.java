@@ -1,26 +1,13 @@
-package chex8;
+package chex8.ex12;
 
 public class Client {
 	public static void main(String[] args) {
-	Deck deck1 = new Deck();
-	new DrawLogger(deck1);
-	new SizeStatus(deck1);
-	Card c =deck1.draw();
-	System.out.println("------");
-	deck1.draw();
-	System.out.println("------");
-	deck1.push(c);
-	System.out.println("------");
-	deck1.draw();
-	System.out.println("------");
-	deck1.draw();
-	System.out.println("------");
 	
-	System.out.println("第二题");
-	DrawLogger2 deck2 = new DrawLogger2();
-	
-	Card c1=deck2.draw();
-	deck2.draw();
-	deck2.push(c1);
+	Directory bestgame = new Directory("bestgame",new SymbolicLink("link2",new File("clash royal")));
+	Directory game = new Directory("game",new File("zumble"),new File("lol"),new SymbolicLink("link1",new File("4399")),bestgame);
+	Directory root = new Directory("root",game,new File("movie"));
+
+	root.accept(new PrintVisitor());
 	}
+	
 }
